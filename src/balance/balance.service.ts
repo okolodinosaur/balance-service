@@ -12,8 +12,6 @@ export class BalanceService {
   ) {}
 
   async addDeductBalance(userId: number, amount: number) {
-    console.log(11111);
-
     return await this.balanceQueue.add({ userId, amount });
   }
 

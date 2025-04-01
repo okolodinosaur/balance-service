@@ -16,11 +16,11 @@ export class UsersService {
   }
 
   async findAll(): Promise<User[]> {
-    return this.prisma.user.findMany({ include: { history: true } });
+    return this.prisma.user.findMany({});
   }
 
   async findOne(id: number): Promise<User | null> {
-    return this.prisma.user.findUnique({ where: { id } });
+    return this.prisma.user.findUnique({ where: { id }, include: { history: true } });
   }
 
   async deductBalance(userId: number, amount: number) {

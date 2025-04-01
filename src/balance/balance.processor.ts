@@ -10,11 +10,11 @@ export class BalanceProcessor {
   @Process()
   async handleBalanceDeduction(job: Job) {
     try {
-      console.log(6666);
-
       const { userId, amount } = job.data;
+
       await this.balanceService.deductBalance(userId, amount);
     } catch (error) {
+      console.log('Failed to deduct balance');
       throw new Error('Failed to deduct balance');
     }
   }
